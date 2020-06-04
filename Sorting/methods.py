@@ -15,6 +15,7 @@ def bubble_sort(A):
             return A
     return A
 
+
 def insertion_sort(A):
     ''' Сортировка вставками:
     1 Suppose there exists a function called Insert designed to insert a value into a sorted sequence at the beginning of an array.
@@ -29,6 +30,7 @@ def insertion_sort(A):
             A[j], A[j-1] = A[j-1], A[j]
             j -= 1
     return A
+
 
 def selection_sort(A):
     ''' Сортировка методом выбора:
@@ -53,6 +55,7 @@ def selection_sort(A):
     return A
     '''
 
+
 def merge_sort(A):
     ''' Сортировка слиянием:
     1 Сортируемый массив разбивается на две части примерно одинакового размера;
@@ -70,8 +73,7 @@ def merge_sort(A):
     for i in range(len(C)):
         A[i] = C[i]
     return
-    #for i in range(len(l)):
-    #    if l[i]
+
 
 def merge(A, B):
     C = []
@@ -91,6 +93,32 @@ def merge(A, B):
         C.append(B[j])
         j += 1
     return C
+
+
+def quick_sorting(a):
+    ''' Быстрая сортировка, сортировка Хоара:
+    1 Выбрать элемент из массива. Назовём его опорным.
+    2 Разбиение: перераспределение элементов в массиве таким образом, что элементы меньше опорного помещаются перед ним, а больше или равные после.
+    3 Рекурсивно применить первые два шага к двум подмассивам слева и справа от опорного элемента. Рекурсия не применяется к массиву, в котором только один элемент или отсутствуют элементы. '''
+    if len(a) <= 1:
+        return(a)
+    l = []
+    r = []
+    m = []
+    for i in range(len(a)):
+        if a[i] < a[0]:
+            l.append(a[i])
+        elif a[i] > a[0]:
+            r.append(a[i])
+        else:
+            m.append(a[i])
+    l = sorting(l)
+    r = sorting(r)
+    c = l+m+r
+    a = c
+    return a
+
+
 A = [12,22,5,1,2,3,9,53,3245,54,2,800]
 print(A)
 merge_sort(A)
